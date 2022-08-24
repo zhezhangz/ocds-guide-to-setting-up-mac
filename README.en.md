@@ -209,6 +209,12 @@ By default, cursor has pretty slow blinking and moving speed. When you need dele
 
 Speed up cursor: Go to `System Preferences` > `Keyboard`, move `Key Repeat` and `Delay Until Repeat` slidebars to rightmost under `Keyboard` tab. Enjoy your speed now!
 
+### Drag and drop with three fingers
+
+By default, when doing drag and drops, you need to click the object and hold while dragging until dropping down. By using macOS "three finger drag", you will be able to drag with only three without any clicking.
+
+Go to `System Preferences` > `Accessibility` > `Moter` > `Pointer Control`, in the right side, there is a `Trackpad Options...`, click it and then enable `Enable dragging`, choose `three fingers drag`.
+
 ## 2. Daily Tools
 
 Some routine software, and not necessarily related to development.
