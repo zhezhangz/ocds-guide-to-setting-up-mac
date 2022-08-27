@@ -118,45 +118,11 @@ Of course, you may click `Esc` to trigger `Cancel`.
 
 *Some lines are missing here. As not helping a lot - fff*
 
-### Others
-
-Reduce using of Mouse and Trackpad may increase your efficiency.
-
-- [Mac keyboard shortcts](https://support.apple.com/kb/HT201236)
-
-  Apple official documents. Like how to move cursor between lines, words and so on.
-
-- [Mac keyboard shortcuts for accessibility features](https://support.apple.com/kb/HT204434)
-
-  Apple official documents. The selection of blue button part is from this.
-
 ### Change `click` of Trackpad to `Tap`
 
 By default Trackpad is triggered by click, but you can change it to tap.
 
 Goto `System Preferences` > `Trackpad`，check `Tap to click` in `Point & Click` tab.
-
-### Voice
-
-macOS can speak by：
-
-```sh
-say hello
-```
-
-Combine it with other bash commands using `&&` or `;` like this:
-
-```sh
-brew update && brew upgrade && brew cleanup ; say mission complete
-```
-
-Also you can let it speak almost anywhere by selecting one word and press `⌥+Esc`(Alt/Option+Esc). Before that you need goto `System Preferences` > `Dictation & Speech`, check `Speak selected text when the key is pressed` in `Text to Speech` tab.
-
-*Some lines are missing here. As not helping a lot - fff*
-
-### Dock Position
-
-Dock comes at the bottom of screen as default, but as the resolution is 16:10, we'd better move it to left or right of screen to gain more vertical space.
 
 ### Change `Caps Lock` to `Control`
 
@@ -197,12 +163,6 @@ defaults delete com.apple.dock static-only; killall Dock
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 ```
 
-### Keychain Access
-
-Keychain Access is a macOS application. It can be used to find saved accounts and passwords including Wi-Fi password.
-
-*Some lines are missing here. As not helping a lot - fff*
-
 ### Efficient Cursor
 
 By default, cursor has pretty slow blinking and moving speed. When you need delete a large paragraphs of text by pressing the backspace, you are probably wasting your time. Even you hold the backspace key hardly, the cursor is still as slow as a snail.
@@ -215,7 +175,7 @@ By default, when doing drag and drops, you need to click the object and hold whi
 
 Go to `System Preferences` > `Accessibility` > `Moter` > `Pointer Control`, in the right side, there is a `Trackpad Options...`, click it and then enable `Enable dragging`, choose `three fingers drag`.
 
-## 2. Daily Tools
+## 2. Tools
 
 Some routine software, and not necessarily related to development.
 
@@ -224,16 +184,6 @@ Some routine software, and not necessarily related to development.
 Package management, official description: "The missing package manager for macOS".
 
 Go to official site for installation steps.
-
-After installation, you only need to run command below to install mysql, gradle, maven, node：
-
-```sh
-brew install mysql gradle maven node
-```
-
-PS: install brew will download and install Apple Command Line Tools automatically.
-
-*Some lines are missing here. As not helping a lot - fff*
 
 ### [Homebrew Cask](https://caskroom.github.io/)
 
@@ -249,31 +199,13 @@ You would like to search if you not sure if some application is already in cask.
 brew search java
 ```
 
-*Some lines are missing here. As not helping a lot - fff*
+### Dato
+
+Install from AppStore.
 
 ### [iTerm2](https://www.iterm2.com/)
 
 iTerm2 is the most widely used terminal tool, considered as the replacement of Terminal. It provides [a group of practical features](https://www.iterm2.com/features.html), including `Split Panes`. Its default black background makes me throw away macOS' inbuilt Terminal application without any hesitation.
-
-Installation:
-
-```sh
-brew cask install iterm2
-```
-
-Thanks to brew-cask ~
-
-In iTerm2, except the commond shortcuts like `^E`(ctrl+E)(find more [here](#Others)). And after some configuration you can have more shortcuts like `⌥B`(alt+B), `⌥F`(alt+F).
-HowTo: go to `Preferences` > `Profiles` > `Keys`, change the option of `Left option (⌥) key acts as` and `Right option (⌥) key acts as` to `+ESC`.
-
-When you open new window/tab, by default you're at user home directory, and need input commands to go somewhere else. If you want to open new window/tab in previous directory, you can set it like this:
-`Preferences` > `Profiles`, and select your profile('Default' for most of time), go to `General` tab, check `Reuse previous seesion's directory` for `Working Directory`.
-
-If you want to save all the current windows/tabs layout, press `⌘⇧S`(command+shift+S) to save the window arrangement. Also you can find this item in the `Window` menu on the top.(*added by fff*)
-
-Till now, Terminal should be given up, and turn to use iTerm2.
-
-And in iTerm2, double click will select the according word, triple click will select the current line. Also the selected content will be in your clip-board, no addition `⌘C`(command+C) is required.
 
 ### [Oh My Zsh](http://ohmyz.sh)
 
@@ -299,51 +231,16 @@ Oh-My-Zsh gets [more valuable plugins](https://github.com/robbyrussell/oh-my-zsh
 
 Besides Oh-My-Zsh, there is [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)，which based on [Fishshell](http://fishshell.com/).
 
-### Git Alias
+### Rectangle
 
-Almost everyone is looking for ways to increase their efficiency, like git alias, using `git st` instead of `git status`. But it requires some manual configuration, which makes everyone's configuration differ.
+### Jenv
 
-Oh-My-Zsh provides a set of system aliases to achieve the same purpose. For example: take `gst` as the alias of `git status`. Also the git plugin of Oh-My-Zsh is enabled by default, which means if you're using Oh-My-Zsh, you are having a set of efficient aliases, which is been commonly used globally, isn't that wonderful?!
+### Colima
 
-Some of my frequently used aliases are:
-
-Alias | Command
------ | -------
-gapa  | `git add --patch`
-gc!   | `git commit -v --amend`
-gcl   | `git clone --recursive`
-gclean| `git reset --hard && git clean -dfx`
-gcm   | `git checkout master`
-gcmsg | `git commit -m`
-gco   | `git checkout`
-gd    | `git diff`
-gdca  | `git diff --cached`
-glola | `git log --graph --pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all`
-gp    | `git push`
-grbc  | `git rebase --continue`
-gst   | `git status`
-gup   | `git pull --rebase`
-gwip  | `git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"`
-
-The full list is here: <https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git>, or simply run command `alias | grep git` in Oh-My-Zsh window.
-
-*Some lines are missing here. As not helping a lot - fff*
-
-### ShiftIt
-
-In macOS you only can adjust window size by dragging. I've tried lots of window management tools, but most of them have the conflict key mapping(mostly with IntelliJ IDEA). ShiftIt is the apparently rare one without any conflicts.
-
-Installation:
-
-```sh
-brew cask install shiftit
+```shell
+brew install docker docker-compose kubernetes-cli colima
+colima start -m 2 --mount $HOME/:w
 ```
-
-SizeUp is one replacer，share the same main shortcuts with ShiftIt.
-
-Divvy is another replacer, need to purchase through appstore.(*added by fff*)
-
-For hackers: [Slate](https://github.com/jigish/slate), configuration reference: <http://thume.ca/howto/2012/11/19/using-slate/>
 
 ### Sublime Text 2
 
